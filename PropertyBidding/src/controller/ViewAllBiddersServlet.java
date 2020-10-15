@@ -30,8 +30,21 @@ public class ViewAllBiddersServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
+		BidderHelper dao = new BidderHelper();
+		
+		request.setAttribute("allBidders", dao.showAllBidders());
+		
+		String path = "/bidder-list.jsp";
+		
+		// if there are no bidders to display, then set the
+		// path to redirect to index.html
+		if (dao.showAllBidders().isEmpty()) {
+			path = "/index.html";
+		}
+		
+		// redirect the user to the next path
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**

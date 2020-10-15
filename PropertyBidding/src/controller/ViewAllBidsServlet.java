@@ -29,8 +29,25 @@ public class ViewAllBidsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		BidHelper dao = new BidHelper();
+		
+		// use the BidHelper object's showAllBids method to
+		// obtain a list of all the bids and get it ready 
+		// for the bid-list.jsp
+		request.setAttribute("allBids",  dao.showAllBids());
+		
+		String path = "/bid-list.jsp";
+		
+		// if there are no bids to display, then set the
+		// path to redirect to index.html
+		if (dao.showAllBids().isEmpty()) {
+			path = "/index.html";
+		}
+		
+		// redirect the user to the next path
+		getServletContext().getRequestDispatcher(path).forward(request, response);
+		
 	}
 
 	/**
