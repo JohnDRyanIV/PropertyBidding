@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Bidder;
+
 // README
 // This might not be used at all, unless we want to allows bidders to change their name.
 // Just included it in case we need it later.
@@ -33,7 +35,6 @@ public class EditBidderServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -41,7 +42,20 @@ public class EditBidderServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		BidderHelper dao = new BidderHelper();
+		
+		// Getting info on bidder
+		String name = request.getParameter("name");
+		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		
+		// Finding bidder
+		Bidder bidderToUpdate = dao.searchForBidderById(tempId);
+		bidderToUpdate.setName(name);
+		
+		// Updating bidder
+		dao.updateBidder(bidderToUpdate);
+		
+		getServletContext().getRequestDispatcher("viewAllBiddersServlet").forward(request, response);
 	}
 
 }
