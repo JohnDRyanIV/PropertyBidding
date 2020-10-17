@@ -13,7 +13,7 @@
 	<c:forEach items="${requestScope.allBidders}" var="currentbidder">
 		<tr> 
 			<td><input type="radio" name="id" value="${currentbidder.id}"></td>
-			<td>Bidder: ${currentbid.bidder.getName()}</td>
+			<td>Bidder:  ${currentbid.bidder.getName()}</td>
 		</tr>
 	</c:forEach>
 	</table>

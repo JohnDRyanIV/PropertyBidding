@@ -37,8 +37,8 @@ public class ViewAllBiddersServlet extends HttpServlet {
 		
 		String path = "/bidder-list.jsp";
 		
-		// if there are no bidders to display, then set the
-		// path to redirect to index.html
+		// if there are no bidders to display,
+		// then set the path to redirect to index.html
 		if (dao.showAllBidders().isEmpty()) {
 			path = "/index.html";
 		}

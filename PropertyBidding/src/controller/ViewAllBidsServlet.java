@@ -33,8 +33,8 @@ public class ViewAllBidsServlet extends HttpServlet {
 		BidHelper dao = new BidHelper();
 		
 		// use the BidHelper object's showAllBids method to
-		// obtain a list of all the bids and get it ready 
-		// for the bid-list.jsp
+		// obtain a list of all the bids and get it ready for
+		// the bid-list.jsp
 		request.setAttribute("allBids",  dao.showAllBids());
 		
 		String path = "/bid-list.jsp";

@@ -39,7 +39,8 @@ public class ViewAllPropertiesServlet extends HttpServlet {
 			path = "/index.html";
 		}
 		
-		// redirect the user to the next path
+		// redirect the user to the
+		// next path
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 

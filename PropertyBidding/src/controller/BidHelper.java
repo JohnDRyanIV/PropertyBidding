@@ -15,8 +15,8 @@ public class BidHelper {
 
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("PropertyBidding");
 	
-	// searchForBidById returns the Bid objects
-	// that corresponds to the bid in the table
+	// searchForBidById returns the Bid objects that
+	// corresponds to the bid in the table
 	// pointed to by primary key tempId
 	public Bid searchForBidById(Integer tempId) {
 		EntityManager em = emfactory.createEntityManager();

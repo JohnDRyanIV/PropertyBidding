@@ -48,6 +48,7 @@ public class ViewBidsOnPropertyServlet extends HttpServlet {
 			request.setAttribute("allBids", " ");
 		}
 		
+		// redirect to the /bid-list-on-property.jsp
 		getServletContext().getRequestDispatcher("/bid-list-on-property.jsp").forward(request, response);
 	}
 

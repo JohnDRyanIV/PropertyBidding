@@ -56,7 +56,8 @@ public class NavagationServlet extends HttpServlet {
 			path = "/index.html";
 		}
 		
-		// redirect to whichever jsp is in the path variable
+		// redirect to whichever jsp is in the
+		// path variable
 		getServletContext().getRequestDispatcher(path).forward(request, response);	
 		
 	}

@@ -16,7 +16,7 @@
 			<td>${currentbid.property.toString()}</td>
 			<td>Bidder: ${currentbid.bidder.getName()}</td>
 			<td>Bid Amount: ${currentbid.formattedBidAmt()}</td>
-			<td>Date Sold: ${currentbid.property.getDateSold()}</td>
+			<td>Date Sold:  ${currentbid.property.getDateSold()}</td>
 		</tr>
 	</c:forEach>
 	</table>

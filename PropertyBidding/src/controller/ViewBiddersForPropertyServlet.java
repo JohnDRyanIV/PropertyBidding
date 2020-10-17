@@ -49,6 +49,7 @@ public class ViewBiddersForPropertyServlet extends HttpServlet {
 			request.setAttribute("allBidders", " ");
 		}
 		
+		// redirect to the bidder-list-on-property.jsp
 		getServletContext().getRequestDispatcher("/bidder-list-on-property.jsp").forward(request, response);
 	}
 
