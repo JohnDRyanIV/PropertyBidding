@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Add new bidder</title>
 </head>
 <body>
+	<form action = "addBidderServlet" method="post">
+		Name: <input type ="text" name="name">
+		<input type = "submit" value = "Add Bidder">
+	</form>
+	<a href = "index">Return to homepage</a>
 
 </body>
 </html>

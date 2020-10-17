@@ -22,6 +22,32 @@ public class Bidder {
 		super();
 	}
 	
-	// Implement constructors, getters, & toString
+	public Bidder(String name) {
+		super();
+		setName(name);
+	}
+
+	// Getters-Setters & toString
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Bidder [id=" + id + ", name=" + name + "]";
+	}
 
 }

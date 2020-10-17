@@ -23,7 +23,7 @@ public class Bid {
 	private int id;
 	
 	@Column(name="BID_AMOUNT")
-	private double amount;
+	private Double amount;
 	
 	@ManyToOne (cascade=CascadeType.PERSIST) // Might not be many to one, check later
 	@JoinColumn(name="PROP_ID")
@@ -32,20 +32,44 @@ public class Bid {
 	@ManyToOne (cascade=CascadeType.PERSIST) // Might not be many to one, check later 
 	@JoinColumn(name="BIDR_ID")
 	private Bidder bidder;
-	
-	// Implement constructor, getters/setters, and toString
-	
+  
 	public Bid() {
 		super();
 	}
-
-	public Bid(double bidAmt, Property prop, Bidder bidr) {
+    
+	public Bid(Double amount, Property property, Bidder bidder) {
 		super();
-		this.amount = bidAmt;
-		this.property = prop;
-		this.bidder = bidr;
+		setAmount(amount);
+		setProperty(property);
+		setBidder(bidder);
 	}
-
+	
+  // formattedBidAmt returns a string formatted
+	// as a currency amount for the amount property
+	public String formattedBidAmt () {
+		
+		// instantiate NumberFormat object to format $$$ amounts down below
+		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
+		
+		// format the bid amount in currency format
+		String formattedAmt = currencyFormatter.format(amount);
+	
+		return formattedAmt;
+		
+	}
+	
+	// Getters-Setters & toString
+	
+  @Override
+	public String toString() {
+		
+		// assign the property bid attributes to the bidDetails string object
+		String bidDetails = "List [id=" + id + ", bid amount=" + formattedBidAmt() +
+			", property=" + property.toString() + ", bidder=" + bidder.toString();
+    
+    return bidDetails;
+  }
+  
 	public int getId() {
 		return id;
 	}
@@ -54,11 +78,11 @@ public class Bid {
 		this.id = id;
 	}
 
-	public double getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 
@@ -77,28 +101,4 @@ public class Bid {
 	public void setBidder(Bidder bidder) {
 		this.bidder = bidder;
 	}
-	
-	// formattedBidAmt returns a string formatted
-	// as a currency amount for the amount property
-	public String formattedBidAmt () {
-		
-		// instantiate NumberFormat object to format $$$ amounts down below
-		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
-		
-		// format the bid amount in currency format
-		String formattedAmt = currencyFormatter.format(amount);
-	
-		return formattedAmt;
-		
-	}
-	@Override
-	public String toString() {
-		
-		// assign the property bid attributes to the bidDetails string object
-		String bidDetails = "List [id=" + id + ", bid amount=" + formattedBidAmt() +
-			", property=" + property.toString() + ", bidder=" + bidder.toString();
-		
-		return bidDetails;
-	}
-	
 }
