@@ -1,5 +1,7 @@
 package model;
 
+import java.time.format.DateTimeFormatter;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.text.NumberFormat;
 
 @Entity
 @Table(name="bid")
@@ -29,11 +32,11 @@ public class Bid {
 	@ManyToOne (cascade=CascadeType.PERSIST) // Might not be many to one, check later 
 	@JoinColumn(name="BIDR_ID")
 	private Bidder bidder;
-	
+  
 	public Bid() {
 		super();
 	}
-	
+    
 	public Bid(Double amount, Property property, Bidder bidder) {
 		super();
 		setAmount(amount);
@@ -41,8 +44,32 @@ public class Bid {
 		setBidder(bidder);
 	}
 	
+  // formattedBidAmt returns a string formatted
+	// as a currency amount for the amount property
+	public String formattedBidAmt () {
+		
+		// instantiate NumberFormat object to format $$$ amounts down below
+		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
+		
+		// format the bid amount in currency format
+		String formattedAmt = currencyFormatter.format(amount);
+	
+		return formattedAmt;
+		
+	}
+	
 	// Getters-Setters & toString
 	
+  @Override
+	public String toString() {
+		
+		// assign the property bid attributes to the bidDetails string object
+		String bidDetails = "List [id=" + id + ", bid amount=" + formattedBidAmt() +
+			", property=" + property.toString() + ", bidder=" + bidder.toString();
+    
+    return bidDetails;
+  }
+  
 	public int getId() {
 		return id;
 	}
@@ -74,12 +101,4 @@ public class Bid {
 	public void setBidder(Bidder bidder) {
 		this.bidder = bidder;
 	}
-
-	@Override
-	public String toString() {
-		return "Bid [id=" + id + ", amount=" + amount + ", property=" + property.toString() + 
-				", bidder=" + bidder.toString() + "]";
-	}
-	
-
 }

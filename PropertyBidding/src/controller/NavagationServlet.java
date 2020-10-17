@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Bid;
+
 /**
  * Servlet implementation class NavagationServlet
  */
@@ -34,8 +36,30 @@ public class NavagationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+	
+		BidHelper dao = new BidHelper();
+		
+		String act = request.getParameter("doThisToBid");
+		
+		String path = "/viewAllBidsServlet";
+		
+		if (act.equalsIgnoreCase("edit")) {
+			try {
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				Bid bidToEdit = dao.searchForBidById(tempId);
+				request.setAttribute("bidToEdit", bidToEdit);
+				path = "/edit-bid.jsp";
+			} catch (NumberFormatException e) {
+					System.out.println("Forgot to select a bid");
+			}
+		} else if (act.equals("add")) {
+			path = "/index.html";
+		}
+		
+		// redirect to whichever jsp is in the
+		// path variable
+		getServletContext().getRequestDispatcher(path).forward(request, response);	
+		
 	}
 
 }
