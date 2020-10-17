@@ -8,7 +8,7 @@
 <title>List of Bidders</title>
 </head>
 <body>
-	<form method = "post" action = "navigationServlet">
+	<form method = "post" action = "bidderNavigationServlet">
 	<table>
 	<c:forEach items="${requestScope.allBidders}" var="currentbidder">
 		<tr> 

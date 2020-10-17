@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,10 @@
 </head>
 <body>
 	<form action = "addBidderServlet" method="post">
-		Name: <input type ="text" name="name">
+		Name: <input type ="text" name="name" value="${bidderToAdd.name}">
 		<input type = "submit" value = "Add Bidder">
 	</form>
-	<a href = "index">Return to homepage</a>
+	<a href = "/index.html">Return to homepage</a>
 
 </body>
 </html>

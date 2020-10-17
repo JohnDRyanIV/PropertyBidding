@@ -40,7 +40,7 @@ public class AddBidderServlet extends HttpServlet {
 		
 		Bidder b = new Bidder(name);
 		BidderHelper dao = new BidderHelper();
-		dao.insertBidder(b);	// TODO make method in BidderHelper
+		dao.insertBidder(b);
 		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}
 
