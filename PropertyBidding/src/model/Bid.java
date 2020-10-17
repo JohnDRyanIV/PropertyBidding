@@ -94,8 +94,7 @@ public class Bid {
 	@Override
 	public String toString() {
 		
-		// assign the property bid attributes to the bidDetails
-		// string object
+		// assign the property bid attributes to the bidDetails string object
 		String bidDetails = "List [id=" + id + ", bid amount=" + formattedBidAmt() +
 			", property=" + property.toString() + ", bidder=" + bidder.toString();
 		
