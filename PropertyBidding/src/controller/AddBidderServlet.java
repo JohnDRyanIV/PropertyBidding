@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Bidder;
+
 /**
  * Servlet implementation class AddBidderServlet
  */
@@ -26,8 +28,7 @@ public class AddBidderServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
 	/**
@@ -35,7 +36,12 @@ public class AddBidderServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String name = request.getParameter("name");
+		
+		Bidder b = new Bidder(name);
+		BidderHelper dao = new BidderHelper();
+		dao.insertBidder(b);	// TODO make method in BidderHelper
+		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 	}
 
 }
