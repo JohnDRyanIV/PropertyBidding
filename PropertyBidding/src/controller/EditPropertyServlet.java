@@ -1,11 +1,15 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalTime;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.Property;
 
 //README
 // This might not be used at all, unless we want to change various fields of houses.
@@ -41,7 +45,27 @@ public class EditPropertyServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		PropertyHelper dao = new PropertyHelper();
+		
+		// Getting info on property
+		String address = request.getParameter("address");
+		String city = request.getParameter("city");
+		String state = request.getParameter("state");
+		String zip = request.getParameter("zip");
+		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		
+		// Finding property
+		Property propertyToUpdate = dao.searchForPropertyById(tempId);
+		propertyToUpdate.setAddress(address);
+		propertyToUpdate.setCity(city);
+		propertyToUpdate.setState(state);
+		propertyToUpdate.setZip(zip);
+		
+		// Updating property
+		dao.updateProperty(propertyToUpdate);
+		
+		getServletContext().getRequestDispatcher("/viewAllPropertiesServlet").forward(request, response);
+
 	}
 
 }

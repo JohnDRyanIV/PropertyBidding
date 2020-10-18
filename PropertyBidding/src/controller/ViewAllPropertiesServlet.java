@@ -31,7 +31,7 @@ public class ViewAllPropertiesServlet extends HttpServlet {
 		
 		request.setAttribute("allProperties", dao.showAllProperties());
 		
-		String path = "/bidder-list.jsp";
+		String path = "/property-list.jsp";
 		
 		// if there are no properties to display, then set the
 		// path to redirect to index.html

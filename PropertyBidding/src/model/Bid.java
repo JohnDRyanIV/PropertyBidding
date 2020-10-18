@@ -44,7 +44,7 @@ public class Bid {
 		setBidder(bidder);
 	}
 	
-  // formattedBidAmt returns a string formatted
+  	// formattedBidAmt returns a string formatted
 	// as a currency amount for the amount property
 	public String formattedBidAmt () {
 		
@@ -60,15 +60,15 @@ public class Bid {
 	
 	// Getters-Setters & toString
 	
-  @Override
+  	@Override
 	public String toString() {
 		
 		// assign the property bid attributes to the bidDetails string object
 		String bidDetails = "List [id=" + id + ", bid amount=" + formattedBidAmt() +
 			", property=" + property.toString() + ", bidder=" + bidder.toString();
     
-    return bidDetails;
-  }
+    		return bidDetails;
+	}
   
 	public int getId() {
 		return id;

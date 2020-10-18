@@ -8,12 +8,12 @@
 <title>List of Bidders</title>
 </head>
 <body>
-	<form method = "post" action = "navigationServlet">
+	<form method = "post" action = "bidderNavigationServlet">
 	<table>
 	<c:forEach items="${requestScope.allBidders}" var="currentbidder">
 		<tr> 
 			<td><input type="radio" name="id" value="${currentbidder.id}"></td>
-			<td>Bidder:  ${currentbid.bidder.getName()}</td>
+			<td>Bidder:  ${currentbidder.getName()}</td>
 		</tr>
 	</c:forEach>
 	</table>

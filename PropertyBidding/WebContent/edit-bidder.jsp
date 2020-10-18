@@ -10,7 +10,7 @@
 
 <body>
 	<form action = "editBidderServlet" method = post>
-		Name: <input type = "text" name = "name" value = "${bidderToEdit.name}">
+		Name: <input type = "text" name = "name" value = "${bidderToEdit.name}"><p></p>
 		<input type = "hidden" name = "id" value = "${bidderToEdit.id}">
 		<input type = "submit" value = "Save edited bidder">
 	</form>

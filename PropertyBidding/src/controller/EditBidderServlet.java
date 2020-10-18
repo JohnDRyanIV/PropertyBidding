@@ -55,7 +55,7 @@ public class EditBidderServlet extends HttpServlet {
 		// Updating bidder
 		dao.updateBidder(bidderToUpdate);
 		
-		getServletContext().getRequestDispatcher("viewAllBiddersServlet").forward(request, response);
+		getServletContext().getRequestDispatcher("/viewAllBiddersServlet").forward(request, response);
 	}
 
 }
