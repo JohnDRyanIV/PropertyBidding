@@ -41,13 +41,13 @@ public class ViewBiddersForPropertyServlet extends HttpServlet {
 		
 		Property prop = pho.searchForPropertyById(propId);
 		
-		List<Bidder> bidderList = bho.searchForBiddersByProperty(prop);
+//		List<Bidder> bidderList = bho.searchForBiddersByProperty(prop);
 		
-		request.setAttribute("allBidders", bidderList);
+//		request.setAttribute("allBidders", bidderList);
 		
-		if (bidderList.isEmpty()) {
+//		if (bidderList.isEmpty()) {
 			request.setAttribute("allBidders", " ");
-		}
+//		}
 		
 		// redirect to the bidder-list-on-property.jsp
 		getServletContext().getRequestDispatcher("/bidder-list-on-property.jsp").forward(request, response);
