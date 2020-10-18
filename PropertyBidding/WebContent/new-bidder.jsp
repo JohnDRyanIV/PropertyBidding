@@ -12,7 +12,7 @@
 		Name: <input type ="text" name="name" value="${bidderToAdd.name}">
 		<input type = "submit" value = "Add Bidder">
 	</form>
-	<a href = "/index.html">Return to homepage</a>
+	<a href = "index.html">Return to homepage</a>
 
 </body>
 </html>

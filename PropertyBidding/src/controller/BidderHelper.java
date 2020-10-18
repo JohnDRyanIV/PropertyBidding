@@ -22,10 +22,11 @@ public class BidderHelper {
 	
 	public List<Bidder> showAllBidders() {
 		EntityManager em = emfactory.createEntityManager();
-		List<Bidder> allBidders = em.createQuery("SELECT i FROM Bidder i").getResultList();
+		List<Bidder> allBidders = em.createQuery("SELECT b FROM Bidder b").getResultList();
 		return allBidders;
 	}
 	
+	// Not used in program, bidder information is always kept on file. All that matters is deleting bids
 	public void deleteBidder(Bidder toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();

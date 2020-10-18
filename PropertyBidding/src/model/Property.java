@@ -35,6 +35,7 @@ public class Property {
 	
 	public Property() {
 		super();
+		setDateSold(null); // Explicitly set date sold to null for isSold boolean
 	}
 	
 	public Property(String address, String city, String state, String zip) {
@@ -43,12 +44,35 @@ public class Property {
 		setCity(city);
 		setState(state);
 		setZip(zip);
+		setDateSold(null); // Explicitly set date sold to null for isSold boolean
 	}
 	
 	// Function assigns current date dateSold
 	public void sellProperty() {
 		LocalDate sold = LocalDate.now(); // date object created
 		setDateSold(sold);
+	}
+	
+	// Function returns true if house has been sold
+	public boolean isSold() {
+		if(this.getDateSold() == null) {
+			return false;
+		}
+		return true;
+	}
+	
+	// property-list doesn't want to show date sold when toString is invoked in it, so we invoke it here
+	// will return string formatted for date sold portion of property-list, even if property hasn't been sold
+	public String showDateSold() {
+		String date = "";
+		if(this.isSold()) {
+			date += "Date Sold: ";
+			date += this.getDateSold().toString();
+		}
+		else {
+			date = "Not yet sold";
+		}
+		return date;
 	}
 	
 	// Getters-Setters & toString
