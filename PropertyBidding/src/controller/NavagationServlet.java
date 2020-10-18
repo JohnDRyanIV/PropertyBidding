@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Bid;
+import model.Bidder;
+import model.Property;
 
 /**
  * Servlet implementation class NavagationServlet
@@ -40,7 +42,7 @@ public class NavagationServlet extends HttpServlet {
 		BidHelper dao = new BidHelper();
 		
 		String act = request.getParameter("doThisToBid");
-		
+			
 		String path = "/viewAllBidsServlet";
 		
 		if (act.equalsIgnoreCase("edit")) {
@@ -53,7 +55,7 @@ public class NavagationServlet extends HttpServlet {
 					System.out.println("Forgot to select a bid");
 			}
 		} else if (act.equals("add")) {
-			path = "/index.html";
+			path = "/new-bid.jsp";   // redirect to the home page
 		}
 		
 		// redirect to whichever jsp is in the
