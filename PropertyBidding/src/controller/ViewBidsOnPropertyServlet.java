@@ -38,14 +38,15 @@ public class ViewBidsOnPropertyServlet extends HttpServlet {
 		
 		Integer propId = Integer.parseInt(request.getParameter("id"));
 		
-		Property prop = pho.searchForPropertyById();
+		Property prop = pho.searchForPropertyById(propId);
 		
 		List<Bid> bidList = bho.searchForBidByProperty(prop);
 		
-		request.setAttribute("allBids", bidList);
+		request.setAttribute("propertyForBids", prop);
+		request.setAttribute("allBidsOnProperty", bidList);
 		
 		if (bidList.isEmpty()) {
-			request.setAttribute("allBids", " ");
+			request.setAttribute("allBidsOnProperty", " ");
 		}
 		
 		// redirect to the /bid-list-on-property.jsp
