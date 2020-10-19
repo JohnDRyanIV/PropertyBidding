@@ -42,7 +42,7 @@ public class ViewAllBidsServlet extends HttpServlet {
 		// if there are no bids to display, then set the
 		// path to redirect to index.html
 		if (dao.showAllBids().isEmpty()) {
-			path = "/index.html";
+			path = "/index.jsp";
 		}
 		
 		// redirect the user to the next path

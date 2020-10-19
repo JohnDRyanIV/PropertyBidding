@@ -75,8 +75,14 @@ public class PropertyNavigationServlet extends HttpServlet {
 				System.out.println("Didn't select property");
 			} 
 		}
-		else if(act.equals("view-bids")) { // views bids on the house & who placed them
-			// TODO: Show user what bids have been placed on the house
+		else if(act.equals("View bids")) { // views bids on the house & who placed them
+			try {
+				Integer tempId = Integer.parseInt(request.getParameter("id"));
+				Property propertyToEdit = dao.searchForPropertyById(tempId);
+				path = "/viewBidsOnPropertyServlet";
+			} catch (NumberFormatException e) {
+				System.out.println("Didn't select property");
+			}
 		}
 		else if(isSold == false) { // If house isn't sold, following actions can be performed
 			if (act.equals("sell")) {
