@@ -10,7 +10,7 @@ import model.Bidder;
 
 public class BidderHelper {
 	
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("PropertyBidding");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("WebPropertyBidding");
 	
 	public void insertBidder(Bidder b) {
 		EntityManager em = emfactory.createEntityManager();

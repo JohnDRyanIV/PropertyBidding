@@ -11,7 +11,7 @@ import model.Property;
 
 public class PropertyHelper {
 
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("PropertyBidding");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("WebPropertyBidding");
 	
 	public void insertProperty(Property p) {
 		EntityManager em = emfactory.createEntityManager();
