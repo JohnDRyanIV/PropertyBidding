@@ -8,24 +8,16 @@
 <title>List of Properties by Bid</title>
 </head>
 <body>
-	<form method = "post" action = "navigationServlet">
-		Address: <input type = "text" name = "address" value = "${propertyForBids.address}"><p></p>
-		City: <input type = "text" name = "city" value = "${propertyForBids.city}"><p></p>
-		State: <input type = "text" name = "state" value = "${propertyForBids.state}"><p></p>
-		Zipcode: <input type = "text" name = "zip" value = "${propertyForBids.zip}"><p></p>
-	<table>
-	<c:forEach items="${requestScope.allBidsOnProperty}" var="currentbid">
-		<tr> 
-			<td><input type="radio" name="id" value="${currentbid.id}"></td>
-			<td>${currentbid.property.toString()}</td>
-			<td>Bidder: ${currentbid.bidder.getName()}</td>
-			<td>Bid Amount: ${currentbid.formattedBidAmt()}</td>
-			<td>Date Sold:  ${currentbid.property.getDateSold()}</td>
-		</tr>
-	</c:forEach>
-	</table>
-	<input type = "submit" value = "edit" name="doThisToBid">
-	<input type = "submit" value = "add" name="doThisToBid">
+	<form method = "post" action = "viewAllBidsOnPropertyServlet">
+		<table>
+			<c:forEach items = "${requestScope.allBidsOnProperty}" var="currentBid">
+				<tr>
+					<td>Bidder: ${currentBid.bidder.getName()}</td>
+					<td>Bid Amount: $${currentBid.formattedBidAmt()}</td>
+					<td>${currentBid.property.getDateSold()}</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</form>
 </body>
 </html>

@@ -10,16 +10,15 @@
 <body>
 	TODO: add some standard real estate website page header
 	<p></p> <!-- line break -->
-	<a href = "new-bidder.jsp"><button>Add a bidder</button></a>
+	<a href = "new-bidder.jsp"><button>Add a bidder</button></a></br>
 	<a href = "viewAllBiddersServlet"><button>View all bidders</button></a>
 	<p></p><!-- line break -->
-	<a href = "new-property.jsp"><button>Add a property</button></a>
+	<a href = "new-property.jsp"><button>Add a property</button></a><br/>
 	<a href = "viewAllPropertiesServlet"><button>View all properties</button></a>
 	<p></p><!-- line break -->
 	<form method = "post" action = "navigationServlet">
 		<input type = "submit" value = "Add a bid" name = "doThisToBid">
 	</form>
 	<a href = "viewAllBidsServlet"><button>View all bids</button></a>
-	<a href = "bid-list-on-property.jsp"><button>View all bids on property</button></a>
 </body>
 </html>

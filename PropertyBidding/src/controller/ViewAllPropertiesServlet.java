@@ -36,7 +36,7 @@ public class ViewAllPropertiesServlet extends HttpServlet {
 		// if there are no properties to display, then set the
 		// path to redirect to index.html
 		if (dao.showAllProperties().isEmpty()) {
-			path = "/index.html";
+			path = "/index.jsp";
 		}
 		
 		// redirect the user to the

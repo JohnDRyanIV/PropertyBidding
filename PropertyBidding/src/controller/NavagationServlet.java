@@ -67,7 +67,7 @@ public class NavagationServlet extends HttpServlet {
 			} catch (NumberFormatException e) {
 					System.out.println("Forgot to select a bid");
 			}
-		} else if (act.equals("add")) {
+		} else if (act.equals("add") || act.equals("Add a bid")) {
 			if (bho.showAllBidders().isEmpty()) {  
 				request.setAttribute("allBidders", " ");
 			} else {

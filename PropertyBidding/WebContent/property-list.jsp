@@ -25,6 +25,7 @@
 		<input type = "submit" value = "add" name = "doThisToProperty">
 		<input type = "submit" value = "delete" name = "doThisToProperty">
 		<input type = "submit" value = "sell" name = "doThisToProperty">
+		<input type = "submit" value = "View bids" name = "doThisToProperty">
 		<!-- implement placing bids on selected property later -->
 	</form>
 
