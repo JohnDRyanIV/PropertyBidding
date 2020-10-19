@@ -45,7 +45,7 @@ public class AddPropertyServlet extends HttpServlet {
 		Property p = new Property(address, city, state, zip);
 		PropertyHelper dao = new PropertyHelper();
 		dao.insertProperty(p);
-		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 }
