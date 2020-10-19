@@ -8,19 +8,28 @@
 <title>New Property Bid</title>
 </head>
 <body>
-	<form action = "addBidServlet" method = "post" >
+	<form action = "insertBidServlet" method = "post" >
 		Select a Bidder:  <br/>
-		<select name = "selectedBidder" multiple size = "6">
+		<table>
 			<c:forEach items="${requestScope.allBidders}" var="currentbidder">
-				<option value="${currentbidder.id}">${currentbidder.getName()}</option>
+				<tr>
+					<td><input type = "radio" name = "bidderId" value = "${currentbidder.id}"></td>
+					<td>${currentbidder.getName()}</td>
 			</c:forEach>
-		</select>
+		</table>
 		<br/>Select a Property:  <br/>
-		<select name = "selectedProperty" multiple size = "6">
-			<c:forEach items="${requestScope.allProperties}" var = "currentProperty">
-				<option value="${currentProperty.id}">${currentProperty.toString()}</option>
+		<table>
+			<c:forEach items="${requestScope.allProperties}" var="currentProperty">
+				<tr>
+					<td><input type = "radio" name = "propertyId" value="${currentProperty.id}"></td>
+					<td>Address: ${currentProperty.getAddress()},</td>
+					<td>${currentProperty.getCity()},</td>
+					<td>${currentProperty.getState()},</td>
+					<td>${currentProperty.getZip()},</td>
+					<td>${currentProperty.showDateSold()}</td>
+				</tr>
 			</c:forEach>
-		</select>
+		</table>
 		<br/>Enter Bid Amount: <input type = "text" name = "bidAmount">
 		<input type = "submit" value = "add" name="doThisToBid">	
 	</form>
