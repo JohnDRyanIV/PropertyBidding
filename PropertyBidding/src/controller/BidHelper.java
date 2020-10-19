@@ -13,7 +13,7 @@ import model.Property;
 
 public class BidHelper {
 
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("PropertyBidding");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("WebPropertyBidding");
 	
 	// searchForBidById returns the Bid objects that
 	// corresponds to the bid in the table

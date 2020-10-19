@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;   // this is for debugging purposes...delete
+import java.util.List;   // this is for debugging purposes...delete
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,12 +41,22 @@ public class NavagationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
 		BidHelper dao = new BidHelper();
 		
+		BidderHelper bho = new BidderHelper();
+		
+		PropertyHelper pho = new PropertyHelper();
+		
 		String act = request.getParameter("doThisToBid");
+		
+		System.out.println("Action: " + act);  // this is for debugging purposes...delete
 			
 		String path = "/viewAllBidsServlet";
+		
+		List<Property> propList = new ArrayList<Property>();   // this is for debugging purposes....delete
+		
+		List<Bidder> bidderList = new ArrayList<Bidder>();    // this is for debugging purposes....delete
 		
 		if (act.equalsIgnoreCase("edit")) {
 			try {
@@ -55,6 +68,27 @@ public class NavagationServlet extends HttpServlet {
 					System.out.println("Forgot to select a bid");
 			}
 		} else if (act.equals("add")) {
+			if (bho.showAllBidders().isEmpty()) {  
+				request.setAttribute("allBidders", " ");
+			} else {
+				request.setAttribute("allBidders", bho.showAllBidders());
+				bidderList = new ArrayList<Bidder>();     // this is for debugging purposes....delete
+			}
+			if (pho.showAllProperties().isEmpty()) {
+				request.setAttribute("allProperties", " ");
+			} else {
+				request.setAttribute("allProperties", pho.showAllProperties());
+				propList = new ArrayList<Property>();     // this is for debugging purposes...delete
+			}
+				
+			for (Bidder bidr : bidderList) {   // this is for debugging purposes...delete
+				System.out.println(bidr.toString());
+			}
+			
+			for (Property prop1 : propList) {   // this is for debugging purposes...delete
+				System.out.println(prop1.toString());
+			} 
+			
 			path = "/new-bid.jsp";   // redirect to the home page
 		}
 		

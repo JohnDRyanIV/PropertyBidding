@@ -1,15 +1,13 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Bid;
-import model.Bidder;
-import model.Property;
 
 /**
  * Servlet implementation class AddBidServlet
@@ -39,51 +37,29 @@ public class AddBidServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		BidHelper dao = new BidHelper();
-		
 		BidderHelper bho = new BidderHelper();
 		
 		PropertyHelper pho = new PropertyHelper();
 		
-		Bidder bidr = null;
-		
-		Property prop = null;
-		
-		Integer bidderId;
-		
-		Integer propertyId;
-		
-		Double bidAmount = null;
-		
-		try {  // get the bidder ID of the selected bidder
-			bidderId = Integer.parseInt(request.getParameter("bidderId"));
-			bidr = bho.searchForBidderById(bidderId);
-		} catch (NumberFormatException e) {
-			bidderId = null;
-			System.out.println("Forgot to select a bidder");
-		}
-		try {  // get the property ID of the selected property
-			propertyId = Integer.parseInt(request.getParameter("propertyId"));
-			prop = pho.searchForPropertyById(propertyId);
-		} catch (NumberFormatException e) {
-			propertyId = null;
-			System.out.println("Forgot to select a property");
-		}
-		try {  // get the bid amount that was entered
-			bidAmount = Double.parseDouble(request.getParameter("bidAmount"));
-		} catch (NumberFormatException e) {
-			bidAmount = null;
-			System.out.println("Invalid bid amount entered");
+		// get list of all bidders and send to new-list.jsp
+		if (bho.showAllBidders().isEmpty()) {  
+			System.out.println("List of bidders is empty.");
+			request.setAttribute("allBidders", " ");
+		} else {
+			System.out.println("Getting list of bidders");
+			request.setAttribute("allBidders", bho.showAllBidders());
 		}
 		
-		// check to see if we are missing any input from the user.  if all three
-		// pointers are not null, then we are okay to add the bid to the database.
-		if ((bidderId != null) && (propertyId != null) && (bidAmount != null)) { 
-			Bid newBid = new Bid(bidAmount, prop, bidr);                       
-			dao.insertBid(newBid);
+		// get list of all properties and send to new-list.jsp
+		if (pho.showAllProperties().isEmpty()) {
+			System.out.println("List of properties is empty.");
+			request.setAttribute("allProperties", " ");
+		} else {
+			System.out.println("Getting list of properties");
+			request.setAttribute("allProperties", pho.showAllProperties());
 		}
 		
-		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/new-bid.jsp").forward(request, response);
 	}
 
 }
