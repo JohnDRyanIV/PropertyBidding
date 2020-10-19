@@ -43,9 +43,9 @@ public class InsertBidderServlet extends HttpServlet {
 		PropertyHelper pho = new PropertyHelper();
 		BidderHelper bho = new BidderHelper();
 		
-		String bidderPlace = request.getParameter("bidderId");
-		System.out.println(bidderPlace);
-		Bidder bidder = bho.searchForBidderById(Integer.parseInt(bidderPlace));
+		String bidrPlace = request.getParameter("bidderId");
+		System.out.println(bidrPlace);
+		Bidder bidder = bho.searchForBidderById(Integer.parseInt(bidrPlace));
 		
 		String propPlace = request.getParameter("propertyId");
 		Property property = pho.searchForPropertyById(Integer.parseInt(propPlace));
