@@ -20,5 +20,6 @@
 	<input type = "submit" value = "edit" name="doThisToBidder">
 	<input type = "submit" value = "add" name="doThisToBidder">
 	</form>
+	<a href = "index.jsp"><button>Return to homepage</button></a>
 </body>
 </html>

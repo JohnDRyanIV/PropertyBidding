@@ -40,8 +40,6 @@ public class ViewBidsOnPropertyServlet extends HttpServlet {
 		
 		Property prop = pho.searchForPropertyById(propId);
 		
-		System.out.println(prop.toString());
-		
 		List<Bid> bidList = bho.searchForBidByProperty(prop);
 		
 		request.setAttribute("propertyForBids", prop);

@@ -16,7 +16,7 @@
 		<input type = "hidden" name = "id" value = "${propertyToEdit.id}">
 		<input type = "submit" value = "Save edited property">
 	</form>
-	<a href = "index.html">Return to homepage</a> 
+	<a href = "index.jsp"><button>Return to homepage</button></a> 
 
 </body>
 </html>

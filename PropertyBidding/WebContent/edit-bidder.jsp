@@ -14,5 +14,6 @@
 		<input type = "hidden" name = "id" value = "${bidderToEdit.id}">
 		<input type = "submit" value = "Save edited bidder">
 	</form>
+	<a href = "index.jsp"><button>Return to homepage</button></a>
 </body>
 </html>

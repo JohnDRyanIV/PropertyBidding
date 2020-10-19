@@ -33,5 +33,6 @@
 		<br/>Enter Bid Amount: <input type = "text" name = "bidAmount">
 		<input type = "submit" value = "add" name="doThisToBid">	
 	</form>
+	<a href = "index.jsp"><button>Return to homepage</button></a>
 </body>
 </html>
