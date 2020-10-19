@@ -17,13 +17,10 @@
 	<c:forEach items="${requestScope.allBidsOnProperty}" var="currentbid">
 		<tr> 
 			<td><input type="radio" name="id" value="${currentbid.id}"></td>
-			<td>${currentbid.property.getAddress()}</td>
-			<td>${currentbid.property.getCity() }</td>
-			<td>${currentbid.property.getState() }</td>
-			<td>${currentbid.property.getZip() }</td>
+			<td>${currentbid.property.toString()}</td>
 			<td>Bidder: ${currentbid.bidder.getName()}</td>
 			<td>Bid Amount: ${currentbid.formattedBidAmt()}</td>
-			<td>${currentbid.property.showDateSold()}</td>
+			<td>Date Sold:  ${currentbid.property.getDateSold()}</td>
 		</tr>
 	</c:forEach>
 	</table>

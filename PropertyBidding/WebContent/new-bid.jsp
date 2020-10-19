@@ -15,13 +15,13 @@
 				<option value="${currentbidder.id}">${currentbidder.getName()}</option>
 			</c:forEach>
 		</select>
-		Select a Property:  <br/>
+		<br/>Select a Property:  <br/>
 		<select name = "selectedProperty" multiple size = "6">
 			<c:forEach items="${requestScope.allProperties}" var = "currentProperty">
 				<option value="${currentProperty.id}">${currentProperty.toString()}</option>
 			</c:forEach>
 		</select>
-		Enter Bid Amount: <input type = "text" name = "bidAmount">
+		<br/>Enter Bid Amount: <input type = "text" name = "bidAmount">
 		<input type = "submit" value = "add" name="doThisToBid">	
 	</form>
 </body>

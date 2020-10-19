@@ -88,12 +88,6 @@ public class PropertyNavigationServlet extends HttpServlet {
 					System.out.println("Didn't select property");
 				}
 			}
-			else if (act.equals("place-bid")) {
-				//TODO: Have user select bidder and amount bid, then create new bid
-			}
-			else if (act.equals("change-bid")) {
-				//TODO: Have user select bidder & change their bid (need to merge)
-			}
 		}
 
 		
