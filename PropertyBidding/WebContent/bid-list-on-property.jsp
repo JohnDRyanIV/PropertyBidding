@@ -19,5 +19,6 @@
 			</c:forEach>
 		</table>
 	</form>
+	<a href = "index.jsp"><button>Return to homepage</button></a>
 </body>
 </html>

@@ -64,8 +64,6 @@ public class BidHelper {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		
-		System.out.println(prop.toString());
-		
 		TypedQuery<Bid> typedQuery  = 
 				em.createQuery("select b from Bid b where b.property.id  = :selectedProperty", Bid.class);
 		

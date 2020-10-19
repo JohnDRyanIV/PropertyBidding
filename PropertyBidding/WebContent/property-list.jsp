@@ -26,8 +26,7 @@
 		<input type = "submit" value = "delete" name = "doThisToProperty">
 		<input type = "submit" value = "sell" name = "doThisToProperty">
 		<input type = "submit" value = "View bids" name = "doThisToProperty">
-		<!-- implement placing bids on selected property later -->
 	</form>
-
+	<a href = "index.jsp"><button>Return to homepage</button></a>
 </body>
 </html>

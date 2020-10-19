@@ -15,7 +15,7 @@
 		Zipcode: <input type = "text" name = "zip" value = "${propertyToAdd.zip}"><p></p>
 		<input type = "submit" value = "Add Property">
 	</form>
-	<a href = "index.html">Return to homepage</a> 
+	<a href = "index.jsp"><button>Return to homepage</button></a>
 
 </body>
 </html>
