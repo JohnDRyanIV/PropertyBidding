@@ -17,7 +17,7 @@ import model.Property;
 /**
  * Servlet implementation class NavagationServlet
  */
-@WebServlet("/navagationServlet")
+@WebServlet("/navigationServlet")
 public class NavagationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

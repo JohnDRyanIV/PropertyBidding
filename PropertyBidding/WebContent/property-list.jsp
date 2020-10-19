@@ -13,10 +13,10 @@
 			<c:forEach items="${requestScope.allProperties}" var = "currentProperty">
 				<tr>
 					<td><input type="radio" name="id" value="${currentProperty.id}"></td>
-					<td>Address: ${currentProperty.getAddress() }</td>
-					<td>${currentProperty.getCity()}</td> <!-- city -->
-					<td>${currentPropety.getState()}</td> <!-- state -->
-					<td>${currentProperty.getZip()}</td> <!--  zipcode -->
+					<td>Address: ${currentProperty.getAddress()},</td>
+					<td>${currentProperty.getCity()},</td>
+					<td>${currentProperty.getState()},</td>
+					<td>${currentProperty.getZip()},</td>
 					<td>${currentProperty.showDateSold()}</td>
 				</tr>
 			</c:forEach>

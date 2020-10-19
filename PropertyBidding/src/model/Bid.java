@@ -25,11 +25,11 @@ public class Bid {
 	@Column(name="BID_AMOUNT")
 	private Double amount;
 	
-	@ManyToOne (cascade=CascadeType.PERSIST) // Might not be many to one, check later
+	@ManyToOne (cascade=CascadeType.MERGE) // Might not be many to one, check later
 	@JoinColumn(name="PROP_ID")
 	private Property property;
 	
-	@ManyToOne (cascade=CascadeType.PERSIST) // Might not be many to one, check later 
+	@ManyToOne (cascade=CascadeType.MERGE) // Might not be many to one, check later 
 	@JoinColumn(name="BIDR_ID")
 	private Bidder bidder;
   

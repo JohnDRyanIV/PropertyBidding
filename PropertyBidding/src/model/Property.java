@@ -75,6 +75,10 @@ public class Property {
 		return date;
 	}
 	
+	public String showLocation() {
+		String location = getAddress() + ", " + getCity() + ", " + getState() + ", " + getZip();
+		return location;
+	}
 	// Getters-Setters & toString
 
 	public int getId() {

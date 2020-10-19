@@ -75,10 +75,6 @@ public class PropertyNavigationServlet extends HttpServlet {
 				System.out.println("Didn't select property");
 			} 
 		}
-		else if(act.equals("view-bidders")) { // views bidders on the house
-			// TODO: Show user who has bid on the house
-			// Might only implement view-bids because it has better functionality
-		}
 		else if(act.equals("view-bids")) { // views bids on the house & who placed them
 			// TODO: Show user what bids have been placed on the house
 		}

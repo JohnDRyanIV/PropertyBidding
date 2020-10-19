@@ -8,7 +8,7 @@
 <title>New Property Bid</title>
 </head>
 <body>
-	<form action = "createBidServlet" method = "post" >
+	<form action = "addBidServlet" method = "post" >
 		Select a Bidder:  <br/>
 		<select name = "selectedBidder" multiple size = "6">
 			<c:forEach items="${requestScope.allBidders}" var="currentbidder">

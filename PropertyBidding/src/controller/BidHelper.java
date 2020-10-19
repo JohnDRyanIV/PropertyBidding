@@ -13,7 +13,7 @@ import model.Property;
 
 public class BidHelper {
 
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("WebPropertyBidding");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("PropertyBidding");
 	
 	// searchForBidById returns the Bid objects that
 	// corresponds to the bid in the table
@@ -43,6 +43,18 @@ public class BidHelper {
 		em.close();
 
 		return result;
+	}
+	
+	public List<Property> showAllProperties() {
+		EntityManager em = emfactory.createEntityManager();
+		List<Property> allProperties = em.createQuery("SELECT p FROM Property p").getResultList();
+		return allProperties;
+	}
+	
+	public List<Bidder> showAllBidders() {
+		EntityManager em = emfactory.createEntityManager();
+		List<Bidder> allBidders = em.createQuery("SELECT b FROM Bidder b").getResultList();
+		return allBidders;
 	}
 	
 	// searchForBidByProperty returns a List of Bid objects that
