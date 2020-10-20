@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Property Bidding</title>
 </head>
 <body>
-	TODO: add some standard real estate website page header
+	Here you can register as a bidder, register your home, and place bids on other homes.
 	<p></p> <!-- line break -->
 	<a href = "new-bidder.jsp"><button>Add a bidder</button></a></br>
 	<a href = "viewAllBiddersServlet"><button>View all bidders</button></a>

@@ -13,7 +13,7 @@
 			<c:forEach items = "${requestScope.allBidsOnProperty}" var="currentBid">
 				<tr>
 					<td>Bidder: ${currentBid.bidder.getName()}</td>
-					<td>Bid Amount: $${currentBid.formattedBidAmt()}</td>
+					<td>Bid Amount: ${currentBid.formattedBidAmt()}</td>
 					<td>${currentBid.property.getDateSold()}</td>
 				</tr>
 			</c:forEach>
